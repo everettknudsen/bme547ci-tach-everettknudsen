@@ -32,3 +32,17 @@ def test_lowercase_all(word, expected):
     from tachycardia import lowercase_all
     answer = lowercase_all(word)
     assert answer == expected
+
+
+def test_true_match():
+    from tachycardia import check_for_match
+    answer = check_for_match('tachycardic')
+    expected = True
+    assert answer == expected
+
+
+def test_false_match():
+    from tachycardia import check_for_match
+    answer = check_for_match('bradycardia')
+    expected = False
+    assert answer == expected
