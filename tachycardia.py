@@ -33,7 +33,7 @@ def string_to_set_and_check(word):
     input_set = set(word)
     common = tachy_set.intersection(input_set)
     number_of_common = len(common)
-    if number_of_common > 5:
+    if number_of_common > 6:
         answer = True
     else:
         answer = False

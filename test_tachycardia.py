@@ -38,7 +38,7 @@ def test_lowercase_all(word, expected):
     ('tachycardic', True),
     ('tachycard1c', True),
     ('tacycardic', True),
-    ('taccardic', True)
+    ('tachcardic', True)
 ])
 def test_true_string_to_set_and_check(word, boolean):
     from tachycardia import string_to_set_and_check
@@ -56,5 +56,3 @@ def test_false_string_to_set_and_check(word, boolean):
     from tachycardia import string_to_set_and_check
     answer = string_to_set_and_check(word)
     assert answer == boolean
-
-
