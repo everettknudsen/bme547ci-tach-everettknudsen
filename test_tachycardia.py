@@ -34,15 +34,27 @@ def test_lowercase_all(word, expected):
     assert answer == expected
 
 
-def test_true_match():
-    from tachycardia import check_for_match
-    answer = check_for_match('tachycardic')
-    expected = True
-    assert answer == expected
+@pytest.mark.parametrize("word, boolean", [
+    ('tachycardic', True),
+    ('tachycard1c', True),
+    ('tacycardic', True),
+    ('taccardic', True)
+])
+def test_true_string_to_set_and_check(word, boolean):
+    from tachycardia import string_to_set_and_check
+    answer = string_to_set_and_check(word)
+    assert answer == boolean
 
 
-def test_false_match():
-    from tachycardia import check_for_match
-    answer = check_for_match('bradycardia')
-    expected = False
-    assert answer == expected
+@pytest.mark.parametrize("word, boolean", [
+    ('glacoma', False),
+    ('achycar', False),
+    ('3acycar415', False),
+    ('livercancer', False)
+])
+def test_false_string_to_set_and_check(word, boolean):
+    from tachycardia import string_to_set_and_check
+    answer = string_to_set_and_check(word)
+    assert answer == boolean
+
+
