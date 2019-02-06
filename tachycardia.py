@@ -2,12 +2,12 @@ import string
 
 
 def is_tachycardic():
-    word = input('Give me something that might be tachycardia:')
+    word = input('Input tachycardic information:')
 
     no_punctuation = remove_punctuation(word)
     no_spaces = remove_spaces(no_punctuation)
     all_lower = lowercase_all(no_spaces)
-    print(check_for_match(all_lower))
+    print(string_to_set_and_check(all_lower))
 
 
 def remove_punctuation(word):
@@ -28,8 +28,12 @@ def lowercase_all(word):
     return lower
 
 
-def check_for_match(word):
-    if word == 'tachycardic':
+def string_to_set_and_check(word):
+    tachy_set = set('tachycardic')
+    input_set = set(word)
+    common = tachy_set.intersection(input_set)
+    number_of_common = len(common)
+    if number_of_common > 5:
         answer = True
     else:
         answer = False
