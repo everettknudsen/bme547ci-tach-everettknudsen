@@ -56,3 +56,27 @@ def test_false_string_to_set_and_check(word, boolean):
     from tachycardia import string_to_set_and_check
     answer = string_to_set_and_check(word)
     assert answer == boolean
+
+
+@pytest.mark.parametrize("word, boolean", [
+    ('    @#$%^,,,.Tachy3ARDIA    ,,,,>>><<<@#$%', True),
+    ('   #$%^&tachycardia    ,,,,,,....::::', True),
+    ('tachYCARd1a    ', True),
+    ('3achycardia     @#$%^&*(', True)
+])
+def test_is_tachycardic_true(word, boolean):
+    from tachycardia import is_tachycardic
+    answer = is_tachycardic(word)
+    assert answer == boolean
+
+
+@pytest.mark.parametrize("word, boolean", [
+    ('    @#$%^,,,.bronchitis    ,,,,>>><<<@#$%', False),
+    ('   #$%^&cardia    ,,,,,,....::::', False),
+    ('gastronomy    ', False),
+    ('radiology     @#$%^&*(', False)
+])
+def test_is_tachycardic_false(word, boolean):
+    from tachycardia import is_tachycardic
+    answer = is_tachycardic(word)
+    assert answer == boolean
